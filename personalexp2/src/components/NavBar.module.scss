@@ -1,0 +1,31 @@
+.navBarWrapper {
+  width: 100%;
+  border-bottom: 1px solid black;
+  height: 7vh;
+  display: grid;
+  grid-template-columns: 7vh 0.6fr 1fr 1fr;
+  font-family: "Syncopate", sans-serif;
+  font-weight: 300;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgWrapper {
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  height: 80%;
+}
+
+.gridItem {
+  border-inline-start: 1px solid black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
