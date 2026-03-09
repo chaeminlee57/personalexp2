@@ -6,3 +6,15 @@
   background-color: #ebe9d5;
   position: relative;
 }
+
+.gridWrapper {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 50vh;
+
+
+}
+
+.gridItem {
+  border-block-end: 1px solid black;
+}
