@@ -3,4 +3,112 @@
   min-height: 100dvh;
   margin: 0;
   padding: 0;
+  background-color: #ebe9d5;
+  position: relative;
+}
+
+.flowerVideo {
+  position: fixed;
+  width: 100dvw;
+  top: 30dvh;
+}
+
+.firstSection {
+  display: grid;
+  width: 100%;
+  height: 45dvh;
+  grid-template-columns: 5% 42.5% 17.5% 12.5% 22.5%;
+  grid-template-rows: 0.7fr 1fr 1fr 1.3fr;
+  grid-template-areas:
+    ". . . . ."
+    ". a a . ."
+    ". a a b b"
+    ". . . b b";
+}
+
+.boxA { 
+  grid-area: a; 
+  background: rgb(0, 0, 0); 
+  animation: floatA 17s infinite;
+  padding: 8px 16px;
+  .boxAHeader {
+    color: white;
+  }
+  .boxAText {
+    color: white;
+  }
+}
+.boxB { 
+  grid-area: b; 
+  background: rgb(230, 230, 230); 
+  animation: floatB 13s infinite;
+  padding: 6px 12px;
+  .boxBHeader {
+    color: black;
+  }
+  .boxBText {
+    color: black;
+  }
+}
+
+.secondSection {
+  display: grid;
+  width: 100%;
+  height: 37dvh;
+  grid-template-columns: 5% 30% 10% 40% 15%;
+  grid-template-rows: 1fr 1fr 1.5fr;
+  grid-template-areas:
+    ". c . . ."
+    ". . . . ."
+    ". d d d .";
+}
+
+.boxC {
+  grid-area: c;
+  background: rgb(76, 76, 76);
+  animation: floatC 19s infinite;
+}
+
+.boxD {
+  grid-area: d;
+  background: rgb(255, 255, 255);
+  animation: floatD 16s infinite;
+  border: 1px dashed black;
+  padding: 8px 16px;
+}
+
+@keyframes floatA {
+  0%   { transform: translate(0px, 0px); }
+  20%  { transform: translate(12px, -8px); }
+  40%  { transform: translate(-5px, 15px); }
+  60%  { transform: translate(18px, 4px); }
+  80%  { transform: translate(-9px, -13px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes floatB {
+  0%   { transform: translate(0px, 0px); }
+  15%  { transform: translate(-14px, 6px); }
+  35%  { transform: translate(9px, -17px); }
+  55%  { transform: translate(-3px, 11px); }
+  75%  { transform: translate(16px, -5px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes floatC {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(6px, 14px); }
+  45%  { transform: translate(-16px, -4px); }
+  65%  { transform: translate(11px, -11px); }
+  85%  { transform: translate(-7px, 9px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+@keyframes floatD {
+  0%   { transform: translate(0px, 0px); }
+  18%  { transform: translate(-11px, -9px); }
+  38%  { transform: translate(15px, 7px); }
+  58%  { transform: translate(-4px, -16px); }
+  78%  { transform: translate(8px, 13px); }
+  100% { transform: translate(0px, 0px); }
 }

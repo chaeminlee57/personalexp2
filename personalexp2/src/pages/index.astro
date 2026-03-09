@@ -9,6 +9,31 @@ import NavBar from '../components/NavBar.astro';
 
 <Layout>
 	<div class={styles.pageWrapper}>
+		<video class={styles.flowerVideo} autoplay loop muted playsinline>
+			<source src='/flower.webm' type='video/webm' />
+		</video>
 		<NavBar />
+		<section class={styles.firstSection}>
+			<div class={styles.boxA}>
+				<h3 class={styles.boxAHeader}>Self in the modular way</h3>
+				<p class={styles.boxAText}>Life is no way to treat an animal.</p>
+			</div>
+			<div class={styles.boxB}>
+				<p class={styles.boxBText}>
+					Some books I like are Slaughterhouse Five, Sirens of Titan, and Snow
+					Country.
+				</p>
+				<p class={styles.boxBText}>I love Kafkaesque.</p>
+			</div>
+		</section>
+		<section class={styles.secondSection}>
+			<div class={styles.boxC}></div>
+			<div class={styles.boxD}>
+				<p class={styles.boxAText}>
+					I'm building an AI model that will create vowel vox noises through
+					contextual musical understanding.
+				</p>
+			</div>
+		</section>
 	</div>
 </Layout>
