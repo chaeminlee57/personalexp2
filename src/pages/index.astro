@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import styles from './index.module.scss';
-import NavBar from '../components/NavBar.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -12,39 +11,38 @@ import NavBar from '../components/NavBar.astro';
 		<video class={styles.flowerVideo} autoplay loop muted playsinline>
 			<source src='/flower.webm' type='video/webm' />
 		</video>
-		<NavBar />
 		<section class={styles.firstSection}>
 			<div class={styles.boxA}>
-				<h3 class={styles.boxAHeader}>Self in the modular way</h3>
-				<p class={styles.boxAText}>Life is no way to treat an animal.</p>
+				<h3 class={styles.boxAHeader}>Quote from Vonnegut</h3>
+				<p class={styles.boxAText}>
+					Here we are, trapped in the amber of the moment. There is no why.”
+				</p>
 			</div>
 			<div class={styles.boxB}>
 				<p class={styles.boxBText}>
-					Some books I like are Slaughterhouse Five, Sirens of Titan, and Snow
+					Some books I like are Slaughterhouse Five, Metamorphosis, and Snow
 					Country.
 				</p>
-				<p class={styles.boxBText}>I love Kafkaesque.</p>
 			</div>
 		</section>
 		<section class={styles.secondSection}>
 			<div class={styles.boxC}><img src='bug.webp' alt='birds' /></div>
 			<div class={styles.boxD}>
-				<p class={styles.boxAText}>
-					I'm building an AI model that will create vowel vox noises through
-					contextual musical understanding.
+				<p class={styles.boxDText}>
+					Currently building an AI model that will create vowel vox noises
+					through contextual musical understanding
 				</p>
 			</div>
 		</section>
 		<section class={styles.thirdSection}>
 			<div class={styles.boxE}>
 				<p class={styles.boxEText}>
-					Sometimes structure appears accidentally. Grids pretending to be
-					chaos.
+					Technological design is a criminally underrated aspect of a product.
 				</p>
 			</div>
 
 			<div class={styles.boxG}>
-				<p>Small drifting modules feel more alive than static blocks.</p>
+				<p>Humans are less pragmatic than corporates make out to be.</p>
 			</div>
 		</section>
 

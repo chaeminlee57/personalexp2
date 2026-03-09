@@ -1,3 +1,9 @@
+---
+import NavBar from '../components/NavBar.astro';
+import { ClientRouter } from 'astro:transitions';
+import { fade } from 'astro:transitions';
+---
+
 <!doctype html>
 <html lang='en'>
 	<head>
@@ -7,14 +13,22 @@
 		<link rel='icon' href='/favicon.ico' />
 		<meta name='generator' content={Astro.generator} />
 		<title>Astro Basics</title>
+		<ClientRouter />
 	</head>
 	<body>
-		<slot />
+		<NavBar transition:persist />
+		<slot transition:animate={fade({ duration: '0.5s' })} />
 	</body>
 </html>
 
 <style>
-	html,
+	html {
+		margin: 0;
+		width: 100%;
+		min-height: 100dvh;
+		background-color: #ebe9d5;
+	}
+
 	body {
 		margin: 0;
 		width: 100%;
@@ -22,5 +36,8 @@
 		background-color: #ebe9d5;
 		overscroll-behavior: none;
 		overflow-x: hidden;
+	}
+	:root {
+		font-family: Georgia, 'Times New Roman', Times, serif;
 	}
 </style>
