@@ -1,5 +1,5 @@
 .pageWrapper {
-  width: 100dvw;
+  width: 100%;
   min-height: 100dvh;
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@
 
 .flowerVideo {
   position: fixed;
-  width: 100dvw;
+  width: 100%;
   top: 30dvh;
   pointer-events: none;
 }
