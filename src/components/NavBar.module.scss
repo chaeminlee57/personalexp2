@@ -9,6 +9,12 @@
   font-weight: 300;
   align-items: center;
   justify-content: center;
+  :not(:first-child) {
+    border-inline-start: 1px solid black;
+  }
+  .borderActive {
+    border-right: 1px solid black; 
+  }
 }
 
 .imgWrapper {
@@ -24,9 +30,16 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-inline-start: 1px solid black;
   text-decoration: none;
   color: black;
+}
+
+.active {
+  background-color: black;
+  color: #ebe9d5;
+  .history{
+    border-inline-end: 1px solid black;
+  }
 }
 
 .img {
@@ -35,6 +48,7 @@ a {
 
 .gridItem {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
