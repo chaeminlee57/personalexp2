@@ -16,7 +16,7 @@ import { fade } from 'astro:transitions';
 		<ClientRouter />
 	</head>
 	<body>
-		<NavBar transition:persist />
+		<NavBar transition:animate='none' />
 		<slot transition:animate={fade({ duration: '0.5s' })} />
 	</body>
 </html>
