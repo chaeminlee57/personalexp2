@@ -177,6 +177,13 @@
   background: rgb(60,60,60);
   border: 1px dashed white;
   animation: floatH 20s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: auto;
+    height: 90%;
+  }
 }
 
 .boxI {
