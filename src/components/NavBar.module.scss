@@ -12,8 +12,27 @@
   :not(:first-child) {
     border-inline-start: 1px solid black;
   }
-  .borderActive {
+  &.borderActive {
     border-right: 1px solid black; 
+  }
+
+  a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+
+    &.active {
+      background-color: black;
+      color: #ebe9d5;
+    }
+
+    &.activeImg {
+      background: black;
+    }
   }
 }
 
@@ -22,28 +41,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-a {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-}
-
-.activeImg {
-  background: black;
-}
-
-.active {
-  background-color: black;
-  color: #ebe9d5;
-  .history{
-    border-inline-end: 1px solid black;
-  }
 }
 
 .img {

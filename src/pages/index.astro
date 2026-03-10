@@ -9,8 +9,8 @@ import styles from './index.module.scss';
 <Layout>
 	<div class={styles.pageWrapper}>
 		<video
+			id='flower-video'
 			class={styles.flowerVideo}
-			transition:persist
 			autoplay
 			loop
 			muted
@@ -62,3 +62,12 @@ import styles from './index.module.scss';
 		</section>
 	</div>
 </Layout>
+
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const video = document.getElementById(
+			'flower-video'
+		) as HTMLVideoElement | null;
+		if (video) video.play();
+	});
+</script>
