@@ -14,7 +14,7 @@
 
 .gridWrapper {
   display: grid;
-  grid-template-rows: auto 15vh 15vh;
+  grid-template-rows: auto auto calc(100vw / 3) 15vh;
 
 }
 
@@ -56,5 +56,33 @@
     padding: 14px 12px;
     margin: 0;
     line-height: 1.4em;
+  }
+}
+
+.albumsBox {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(3, 33vw);
+}
+
+.albumWrapper {
+  padding: 4% 8%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    height: 100%;
+  }
+}
+.albumWrapper:not(:last-child) {
+  border-inline-end: 1px solid black;
+}
+
+.albumSectionHeader {
+  border-bottom: 1px solid black;
+  h4 {
+    margin-block: 4px;
+    text-align: center;
   }
 }
