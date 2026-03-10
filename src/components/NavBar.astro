@@ -1,16 +1,11 @@
 ---
 import styles from './NavBar.module.scss';
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 ---
 
 <div
 	class={`${styles.navBarWrapper} ${currentPath === '/history' ? styles.borderActive : ''}`}
 >
-	<span
-		style='font-size:10px; position:fixed; top:0; right:0; background:red; color:white; z-index:9999'
-	>
-		{Astro.url.pathname}
-	</span>
 	<div class={styles.imgWrapper}>
 		<a href='/' class={`${currentPath === '/' ? styles.activeImg : ''}`}
 			><img
