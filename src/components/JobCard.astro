@@ -6,17 +6,18 @@ interface Props {
 	topPosition: string;
 	title: string;
 	description: string;
+	delayTime: number;
 }
 
-const { circleColor, topPosition, title, description } = Astro.props;
+const { circleColor, topPosition, title, description, delayTime } = Astro.props;
 ---
 
 <div
-	style={`background-color: ${circleColor}; top: ${topPosition};`}
+	style={`--delay: ${delayTime}s; background-color: ${circleColor}; top: ${topPosition};`}
 	class={styles.circle}
 >
 </div>
-<div class={styles.jobSection}>
+<div class={styles.jobSection} style={`--delay: ${delayTime}s;`}>
 	<div class={styles.circleSection}></div>
 	<div class={styles.jobDetails}>
 		<h3>{title}</h3>
