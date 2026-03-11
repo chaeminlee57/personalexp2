@@ -17,7 +17,7 @@ const { circleColor, topPosition, title, description, delayTime } = Astro.props;
 	class={styles.circle}
 >
 </div>
-<div class={styles.jobSection} style={`--delay: ${delayTime}s;`}>
+<div class={styles.jobSection} style={`--delay: ${delayTime + 0.4}s;`}>
 	<div class={styles.circleSection}></div>
 	<div class={styles.jobDetails}>
 		<h3>{title}</h3>

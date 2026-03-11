@@ -10,7 +10,7 @@
 
 .gridWrapper {
   display: grid;
-  grid-template-rows: auto auto auto auto auto auto auto 33vw;
+  grid-template-rows: auto auto auto auto auto auto auto auto 33vw;
   
 
 }
@@ -106,16 +106,18 @@
 }
 
 .floatSectionHeader {
-  height: 25vh;
+  height: 15vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   background-color: black;
   padding: 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
   position: relative;
   overflow: hidden;
+
   h3 {
     color: #ebe9d5;
     text-align: center;
@@ -128,9 +130,14 @@
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.15;
+  opacity: 0.35;
   pointer-events: none;
 }
+
+.floatSectionHeader:first-child:after {
+  opacity: 0.55;
+}
+
 
 .floatSectionDescription {
   height: 25vh;
@@ -161,6 +168,21 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   opacity: 0.65;
   pointer-events: none;
+}
+
+.floatSectionHeader:nth-child(1) {
+  font-size: 3em;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    height: 15vh;
+  }
+}
+
+.floatSectionDescription:nth-child(6) {
+  border-bottom: 1px solid black;
 }
 
 @media (orientation: landscape) and (max-width: 850px) {
