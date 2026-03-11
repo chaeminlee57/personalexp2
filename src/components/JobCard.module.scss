@@ -1,0 +1,30 @@
+.jobSection {
+  display: flex;
+  height: 50vh;
+  h3 {
+    font-weight: normal;
+  }
+  p {
+    font-weight: 300;
+  }
+}
+
+.circleSection {
+  width: 40%;
+  height: 100%;
+}
+
+.jobDetails {
+  width: 60%;
+  height: 100%;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #ebe9d5;
+  margin-bottom: -50px;
+  position: sticky; 
+  margin-top: 2em;
+}

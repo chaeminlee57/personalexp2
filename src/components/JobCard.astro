@@ -1,0 +1,27 @@
+---
+import styles from './JobCard.module.scss';
+
+interface Props {
+	circleColor: string;
+	topPosition: string;
+	title: string;
+	description: string;
+}
+
+const { circleColor, topPosition, title, description } = Astro.props;
+---
+
+<div
+	style={`background-color: ${circleColor}; top: ${topPosition};`}
+	class={styles.circle}
+>
+</div>
+<div class={styles.jobSection}>
+	<div class={styles.circleSection}></div>
+	<div class={styles.jobDetails}>
+		<h3>{title}</h3>
+		<p>
+			{description}
+		</p>
+	</div>
+</div>

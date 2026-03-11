@@ -1,8 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import styles from './history.module.scss';
+import JobCard from '../components/JobCard.astro';
 ---
 
 <Layout>
-	<div class={styles.pageWrapper}></div>
+	<div class={styles.pageWrapper}>
+		<div class={styles.timeLineWrapper}>
+			<JobCard
+				circleColor='#d54821'
+				topPosition='calc(7vh + 2em)'
+				title='Hana Tour'
+				description='I did this'
+			/>
+			<JobCard
+				circleColor='#797778'
+				topPosition='calc(7vh + 2em + 50px)'
+				title='Hana Tour'
+				description='I did this'
+			/>
+			<JobCard
+				circleColor='#9c6f45'
+				topPosition='calc(7vh + 2em + 100px)'
+				title='Hana Tour'
+				description='I did this'
+			/>
+			<JobCard
+				circleColor='#151a2c'
+				topPosition='calc(7vh + 2em + 150px)'
+				title='Hana Tour'
+				description='I did this'
+			/>
+		</div>
+	</div>
 </Layout>
