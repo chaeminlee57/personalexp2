@@ -15,7 +15,6 @@ import styles from './index.module.scss';
 			webkit-playsinline='true'
 		>
 			<source src='/finalflower.webm' type='video/webm' />
-			<source src='/finalflower.mov' type='video/mov' />
 		</video>
 		<section class={styles.firstSection}>
 			<div class={styles.boxA}>
@@ -69,6 +68,14 @@ import styles from './index.module.scss';
 		const video = document.getElementById(
 			'flower-video'
 		) as HTMLVideoElement | null;
-		if (video) video.play();
+		if (!video) return;
+
+		video.play().catch(() => {});
+
+		setTimeout(() => {
+			if (video.paused) {
+				video.classList.add('hide');
+			}
+		}, 500);
 	});
 </script>
