@@ -4,5 +4,29 @@ import styles from './creations.module.scss';
 ---
 
 <Layout>
-	<div class={styles.pageWrapper}></div>
+	<div class={styles.pageWrapper}>
+		<div class={styles.sectionWrapper}>
+			<section class={styles.section}>
+				<h3>Vowel Vox</h3>
+				<img src='vox.webp' alt='vox' />
+				<p class={styles.description}>
+					This is a python-powered <span class={styles.highlight}
+						>vowel vox</span
+					> I created. It uses <span class={styles.highlight}
+						>Machine Learning</span
+					>
+					and contextual awareness which vowel sound will be the most approporiate
+					for a certian melody I play on the keyboard (not the instrument, but the
+					typing device)
+				</p>
+				<p class={styles.footer}>
+					Created in <span style='font-style: italic;'>March 8, 2026</span>
+					<br />
+					<a href='https://github.com/chaeminlee57/vowelvox'
+						>visit @ github.com/chaeminlee57/vowelvox</a
+					>
+				</p>
+			</section>
+		</div>
+	</div>
 </Layout>
