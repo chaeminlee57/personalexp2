@@ -6,16 +6,16 @@
   align-items: center;
 }
 
+// so I'm gonna delete this comment later but this current setting is going to be the desktop design. i'll make a separate one for mobile. where the image is the entire width and on the bottom is the description.
 .sectionWrapper {
   width: 90%;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
+  border: 2px dotted black;
   margin: 5vh;
-  background-color: #f3efcc;
-  box-shadow: 5px 5px 0 0 ;
+  background-color: rgb(237, 237, 237);
 }
 
 .section {
@@ -30,17 +30,12 @@
     "image description"
     "footer footer";
   
+  
   h3 {
-    font-weight: normal;
-    padding: 0.3rem 0.3rem;
+    padding-block: 1em;
     margin: 0;
-    width: max-content;
-    background-color: black;
-    color: #ebe9d5;
-    border: 1px solid #ebe9d5;
     grid-area: h3;
-    font-style: italic;
-    box-shadow: 2px 2px 0px 0 rgb(32, 32, 32);
+    text-align: center;
   }
 
   img {
@@ -78,5 +73,5 @@
   background-color: rgb(0, 0, 0);
   border: 1px solid ebe9d5;
   padding: 0.1em 0.1em;
-  color: #f3efcc;
+  color: whitesmoke;
 }
