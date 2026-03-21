@@ -15,6 +15,10 @@
   opacity: 0;
   animation: fadeIn 700ms ease forwards;
   animation-delay: 1s;
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 @keyframes fadeIn {

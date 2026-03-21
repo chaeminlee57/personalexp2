@@ -13,6 +13,7 @@ import styles from './index.module.scss';
 			loop
 			playsinline
 			webkit-playsinline='true'
+			style='opacity: 0;'
 			poster='/finalflower.jpeg'
 		>
 			<source src='/finalflower.webm' type='video/webm' />
@@ -65,19 +66,11 @@ import styles from './index.module.scss';
 </Layout>
 
 <script>
-	document.addEventListener('astro:page-load', () => {
-		const video = document.getElementById(
-			'flower-video'
-		) as HTMLVideoElement | null;
-		if (!video) return;
-
-		video.play().catch(() => {});
-
-		setTimeout(() => {
-			if (video.paused) {
-				video.style.animation = 'none';
-				video.style.display = 'none';
-			}
-		}, 300);
-	});
+	const video = document.getElementById('flower-video') as HTMLVideoElement;
+	if (video) {
+		video.play().catch(() => {
+			video.style.opacity = '1';
+			video.style.animation = 'none';
+		});
+	}
 </script>
