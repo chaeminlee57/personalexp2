@@ -13,7 +13,7 @@ import styles from './index.module.scss';
 			loop
 			playsinline
 			webkit-playsinline='true'
-			poster='/finalflower.jpeg'
+			poster='/staticflower.webp'
 		>
 			<source src='/finalflower.webm' type='video/webm' />
 		</video>
@@ -21,7 +21,7 @@ import styles from './index.module.scss';
 		<img
 			id='flower-fallback'
 			class={styles.flowerFallback}
-			src='/finalflower.jpeg'
+			src='/staticflower.webp'
 			alt='flower background'
 		/>
 		<section class={styles.firstSection}>
@@ -72,34 +72,42 @@ import styles from './index.module.scss';
 </Layout>
 
 <script>
-	const flowerVideo = document.getElementById(
-		'flower-video'
-	) as HTMLVideoElement;
-	const flowerFallback = document.getElementById(
-		'flower-fallback'
-	) as HTMLImageElement;
+	document.addEventListener('astro:page-load', () => {
+		const flowerVideo = document.getElementById(
+			'flower-video'
+		) as HTMLVideoElement;
+		const flowerFallback = document.getElementById(
+			'flower-fallback'
+		) as HTMLImageElement;
 
-	const prefersReducedMotion = window.matchMedia(
-		'(prefers-reduced-motion: reduce)'
-	).matches;
+		// Elements won't exist if we navigated to a different page
+		if (!flowerVideo || !flowerFallback) return;
 
-	if (prefersReducedMotion) {
-		// Low power mode or accessibility setting: hide video, show static poster
-		flowerVideo.style.display = 'none';
-		flowerFallback.style.opacity = '1';
-	} else {
-		// Full motion allowed: hide fallback, play and fade in video
-		flowerFallback.style.display = 'none';
-		flowerVideo
-			.play()
-			.then(() => {
-				flowerVideo.classList.add('is-playing');
-			})
-			.catch(() => {
-				// play() was blocked (e.g. browser policy) — show static fallback instead
-				flowerVideo.style.display = 'none';
-				flowerFallback.style.display = '';
-				flowerFallback.style.opacity = '1';
-			});
-	}
+		// Reset any stale state from a previous navigation
+		flowerVideo.style.display = '';
+		flowerVideo.classList.remove('is-playing');
+		flowerFallback.style.display = '';
+		flowerFallback.style.opacity = '0';
+
+		const prefersReducedMotion = window.matchMedia(
+			'(prefers-reduced-motion: reduce)'
+		).matches;
+
+		if (prefersReducedMotion) {
+			flowerVideo.style.display = 'none';
+			flowerFallback.style.opacity = '1';
+		} else {
+			flowerFallback.style.display = 'none';
+			flowerVideo
+				.play()
+				.then(() => {
+					flowerVideo.classList.add('is-playing');
+				})
+				.catch(() => {
+					flowerVideo.style.display = 'none';
+					flowerFallback.style.display = '';
+					flowerFallback.style.opacity = '1';
+				});
+		}
+	});
 </script>
