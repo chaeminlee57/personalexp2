@@ -16,8 +16,8 @@ import { fade } from 'astro:transitions';
 		<ClientRouter />
 	</head>
 	<body>
-		<!-- Loading screen: renders instantly, hidden by JS once page is ready -->
-		<div id='loading-screen' class='loading-screen'>
+		<!-- Loading screen: visible on first load, delay-shown on client-side navs -->
+		<div id='loading-screen' class='loading-screen' data-initial='true'>
 			<span class='loading-text'>Loading<span class='loading-dots'></span></span
 			>
 		</div>
@@ -56,17 +56,25 @@ import { fade } from 'astro:transitions';
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		opacity: 0;
+		pointer-events: none;
 		transition: opacity 0.4s ease;
 	}
 
-	.loading-screen.hidden {
-		opacity: 0;
-		pointer-events: none;
+	/* First page load: show immediately */
+	.loading-screen[data-initial] {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	/* When revealed by JS for client-side navs */
+	.loading-screen.visible {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	.loading-text {
 		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-style: italic;
 		font-size: 1.25rem;
 		color: #333;
 		letter-spacing: 0.02em;
@@ -94,18 +102,34 @@ import { fade } from 'astro:transitions';
 </style>
 
 <script>
-	document.addEventListener('astro:page-load', () => {
+	let showLoaderTimer: ReturnType<typeof setTimeout> | null = null;
+
+	// When a client-side navigation starts, set a delayed timer to show the loader.
+	// If the page loads within 350ms, the loader never appears.
+	document.addEventListener('astro:before-preparation', () => {
 		const loadingScreen = document.getElementById('loading-screen');
 		if (!loadingScreen) return;
 
-		loadingScreen.classList.add('hidden');
+		// Clear the initial-load attribute so it starts hidden by default
+		loadingScreen.removeAttribute('data-initial');
 
-		loadingScreen.addEventListener(
-			'transitionend',
-			() => {
-				loadingScreen.remove();
-			},
-			{ once: true }
-		);
+		showLoaderTimer = setTimeout(() => {
+			loadingScreen.classList.add('visible');
+		}, 350);
+	});
+
+	// When the new page is ready, cancel the timer (if still pending) and hide the loader.
+	document.addEventListener('astro:page-load', () => {
+		if (showLoaderTimer) {
+			clearTimeout(showLoaderTimer);
+			showLoaderTimer = null;
+		}
+
+		const loadingScreen = document.getElementById('loading-screen');
+		if (!loadingScreen) return;
+
+		// Remove both the initial-load attribute and the JS-added class
+		loadingScreen.removeAttribute('data-initial');
+		loadingScreen.classList.remove('visible');
 	});
 </script>
