@@ -16,8 +16,12 @@ import { fade } from 'astro:transitions';
 		<ClientRouter />
 	</head>
 	<body>
-		<!-- Loading screen: renders instantly, hidden by JS once page is ready -->
-		<div id='loading-screen' class='loading-screen'>
+		<div
+			id='loading-screen'
+			class='loading-screen'
+			data-initial='true'
+			transition:persist
+		>
 			<span class='loading-text'>Loading<span class='loading-dots'></span></span
 			>
 		</div>
@@ -56,18 +60,20 @@ import { fade } from 'astro:transitions';
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		opacity: 0;
+		pointer-events: none;
 		transition: opacity 0.4s ease;
 	}
 
-	.loading-screen.hidden {
-		opacity: 0;
-		pointer-events: none;
+	.loading-screen[data-initial] {
+		opacity: 1;
+		pointer-events: auto;
 	}
 
 	.loading-text {
 		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-style: italic;
 		font-size: 1.25rem;
+		font-style: italic;
 		color: #333;
 		letter-spacing: 0.02em;
 	}
@@ -98,14 +104,7 @@ import { fade } from 'astro:transitions';
 		const loadingScreen = document.getElementById('loading-screen');
 		if (!loadingScreen) return;
 
-		loadingScreen.classList.add('hidden');
-
-		loadingScreen.addEventListener(
-			'transitionend',
-			() => {
-				loadingScreen.remove();
-			},
-			{ once: true }
-		);
+		loadingScreen.removeAttribute('data-initial');
+		loadingScreen.classList.remove('visible');
 	});
 </script>
