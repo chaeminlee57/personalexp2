@@ -5,19 +5,25 @@ import styles from './index.module.scss';
 
 <Layout>
 	<div class={styles.pageWrapper}>
+		<!-- Video: hidden by default, faded in via JS only if motion is allowed -->
 		<video
 			id='flower-video'
 			class={styles.flowerVideo}
-			autoplay
 			muted
 			loop
 			playsinline
 			webkit-playsinline='true'
-			style='opacity: 0;'
 			poster='/finalflower.jpeg'
 		>
 			<source src='/finalflower.webm' type='video/webm' />
 		</video>
+		<!-- Static fallback: shown when reduced motion / low power mode is active -->
+		<img
+			id='flower-fallback'
+			class={styles.flowerFallback}
+			src='/finalflower.jpeg'
+			alt='flower background'
+		/>
 		<section class={styles.firstSection}>
 			<div class={styles.boxA}>
 				<h3 class={styles.boxAHeader}>Quote from Vonnegut</h3>
@@ -66,11 +72,34 @@ import styles from './index.module.scss';
 </Layout>
 
 <script>
-	const video = document.getElementById('flower-video') as HTMLVideoElement;
-	if (video) {
-		video.play().catch(() => {
-			video.style.opacity = '1';
-			video.style.animation = 'none';
-		});
+	const flowerVideo = document.getElementById(
+		'flower-video'
+	) as HTMLVideoElement;
+	const flowerFallback = document.getElementById(
+		'flower-fallback'
+	) as HTMLImageElement;
+
+	const prefersReducedMotion = window.matchMedia(
+		'(prefers-reduced-motion: reduce)'
+	).matches;
+
+	if (prefersReducedMotion) {
+		// Low power mode or accessibility setting: hide video, show static poster
+		flowerVideo.style.display = 'none';
+		flowerFallback.style.opacity = '1';
+	} else {
+		// Full motion allowed: hide fallback, play and fade in video
+		flowerFallback.style.display = 'none';
+		flowerVideo
+			.play()
+			.then(() => {
+				flowerVideo.classList.add('is-playing');
+			})
+			.catch(() => {
+				// play() was blocked (e.g. browser policy) — show static fallback instead
+				flowerVideo.style.display = 'none';
+				flowerFallback.style.display = '';
+				flowerFallback.style.opacity = '1';
+			});
 	}
 </script>
