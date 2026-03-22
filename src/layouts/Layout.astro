@@ -49,7 +49,15 @@ import { fade } from 'astro:transitions';
 	}
 
 	:root {
-		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-family: 'Tiempos', 'Times New Roman', Times, serif;
+	}
+
+	@font-face {
+		font-family: 'Tiempos';
+		src: url('/test-tiempos-text-vf-roman.woff2') format('woff2');
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
 	}
 
 	.loading-screen {
@@ -73,6 +81,7 @@ import { fade } from 'astro:transitions';
 	.loading-text {
 		font-family: Georgia, 'Times New Roman', Times, serif;
 		font-size: 1.25rem;
+		font-style: italic;
 		color: #333;
 		letter-spacing: 0.02em;
 	}

@@ -31,7 +31,6 @@
   object-fit: cover;
 }
 
-// Kill all animations when user prefers reduced motion
 @media (prefers-reduced-motion: reduce) {
   .boxA, .boxB, .boxC, .boxD,
   .boxE, .boxG, .boxH, .boxI {
@@ -61,6 +60,7 @@
     color: white;
     text-align: right;
     margin-block: 2px;
+    font-weight: normal;
   }
   .boxAText {
     color: white;
