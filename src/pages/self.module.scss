@@ -4,104 +4,58 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  background: #111;
-}
-
-.mondrian {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows:
-    70px
-    70px
-    300px
-    70px
-    70px
-    360px
-    70px
-    360px
-    70px
-    360px
-    70px
-    70px;
-  background: #111;
-  gap: 5px;
-  padding: 5px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.cell {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.offWhite  { background-color: #ebe9d5; }
-.lightGray { background-color: #e9e9e9; }
-.charcoal  { background-color: #444444; }
-.pitch     { background-color: #000000; }
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.78; }
-}
-
-.pulse {
-  animation: pulse 3s ease-in-out infinite;
-}
-.pulse1 { animation: pulse 3s    ease-in-out 0s    infinite; }
-.pulse2 { animation: pulse 3.5s  ease-in-out 0.75s infinite; }
-.pulse3 { animation: pulse 2.75s ease-in-out 0.4s  infinite; }
-.pulse4 { animation: pulse 3.25s ease-in-out 1.1s  infinite; }
-.pulse5 { animation: pulse 3.5s  ease-in-out 0.2s  infinite; }
-.pulse6 { animation: pulse 2.5s  ease-in-out 1.5s  infinite; }
-
-.albumCard,
-.bookCard,
-.pianoCard,
-.placeCard {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: #0a0a0a;
+  justify-content: center;
+}
+.flexWrapper {
+  width: 90vw;
+  max-width: 1000px;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+}
 
-  img {
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-    object-fit: cover;
-    display: block;
-  }
-
-  p {
+.selfBox {
+  height: 20vh;
+  width: 40vw;
+  background-color: black;
+  margin-top: 43vh;
+  transform: translateY(-100%);
+  display: flex;
+    align-items: center;
+  .selfBoxHeader {
+    width: 80%;
+    height: max(15%, max-content);
     margin: 0;
-    padding: 10px 14px;
-    color: #f0ebe0;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    line-height: 1.5;
-    text-align: right;
-    flex-shrink: 0;
-  }
-}
-
-.albumCard {
-  video {
-    width: 100%;
-    flex: 1;
-    min-height: 0;
-    object-fit: cover;
-    display: block;
-  }
-
-  p {
-    text-align: center;
+    color: whitesmoke;
+    font-weight: 400;
     font-style: italic;
+    padding-inline: 0.5em;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .selfBoxContent {
+    width: 100%;
+    margin: 0;
+    color: whitesmoke;
+    font-weight: 400;
+    padding-inline: 0.5em;
+    font-size: 0.7rem;
+    
   }
 }
 
-.pianoCard {
+.selfBoxImage {
+  height: 20vh;
+  width: 40vw;
+  background-color: black;
+  margin-top: 43vh;
+  transform: translateY(-100%);
+  display: flex;
+    align-items: center;
   img {
-    object-position: center top;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
