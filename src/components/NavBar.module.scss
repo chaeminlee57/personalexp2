@@ -1,5 +1,9 @@
 .navBarWrapper {
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ebe9d5;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   height: 7vh;
