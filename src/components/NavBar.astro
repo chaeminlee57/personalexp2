@@ -16,9 +16,9 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 		>
 	</div>
 	<a
-		href='/self'
-		class={`${styles.gridItem} ${currentPath === '/self' ? styles.active : ''}`}
-		>SELF</a
+		href='/current'
+		class={`${styles.gridItem} ${currentPath === '/current' ? styles.active : ''}`}
+		>CURRENT</a
 	>
 	<a
 		href='/creations'
