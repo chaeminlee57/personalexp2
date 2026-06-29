@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 	class={`${styles.navBarWrapper} ${currentPath === '/history' ? styles.borderActive : ''}`}
 >
 	<div class={styles.imgWrapper}>
-		<a href='/' class={`${currentPath === '/' ? styles.activeImg : ''}`}
+		<a data-astro-reload href='/' class={`${currentPath === '/' ? styles.activeImg : ''}`}
 			><img
 				class={styles.img}
 				src={currentPath === '/' ? 'invertcircle.webp' : 'circle.webp'}
@@ -15,17 +15,17 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 			/></a
 		>
 	</div>
-	<a
+	<a data-astro-reload
 		href='/current'
 		class={`${styles.gridItem} ${currentPath === '/current' ? styles.active : ''}`}
 		>CURRENT</a
 	>
-	<a
+	<a data-astro-reload
 		href='/film'
 		class={`${styles.gridItem} ${currentPath === '/film' ? styles.active : ''}`}
 		>FILM</a
 	>
-	<a
+	<a data-astro-reload
 		href='/history'
 		class={`${styles.gridItem} ${currentPath === '/history' ? styles.active : ''}`}
 		>HISTORY</a

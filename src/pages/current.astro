@@ -4,5 +4,27 @@ import styles from "./current.module.scss";
 ---
 
 <Layout>
-    <div class={styles.pageWrapper}>Hello</div>
+  <div class={styles.pageWrapper}>
+    <div class={styles.category}>
+      <h1>What I'm currently into</h1>
+      <p>I've been interested and learning AI frameworks such as <b>Temporal</b> and <b>LangGraph</b> <br><br> 
+      I've also been intrigued by NixOS and their unique approach to Linux.</p>
+    </div>
+    <div class={styles.category}>
+      <h1>Current Development Environment</h1>
+      <ul>
+        <li>Terminal Emulator: Ghostty</li>
+        <li>TextEdit: NeoVim</li>
+        <li>OS: Mac</li>
+      </ul>
+    </div>
+    <div class={styles.category}>
+      <ul>
+        <li>Language: C#</li>
+        <li>Infra: K8s (not managed, but self-hosted on Raspberry pis)</li>
+        <li>Others: React Native</li>
+      </ul>
+      <h1>Currently Learning</h1>
+    </div>
+  </div>
 </Layout>
