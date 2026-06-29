@@ -1,21 +1,21 @@
 .pageWrapper {
   min-height: 100vh;
   width: 100%;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-// so I'm gonna delete this comment later but this current setting is going to be the desktop design. i'll make a separate one for mobile. where the image is the entire width and on the bottom is the description.
 .sectionWrapper {
   width: 90%;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px dotted black;
+  border: 1px solid black;
   margin: 5vh;
-  background-color: rgb(237, 237, 237);
+  background-color: black;
 }
 
 .section {
@@ -23,6 +23,7 @@
   height: auto;
   padding-block: 1rem;
   display: grid;
+  color: white;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 50% 50%;
   grid-template-areas:
@@ -33,6 +34,7 @@
   
   h3 {
     padding-block: 1em;
+    color: white;
     margin: 0;
     grid-area: h3;
     text-align: center;
@@ -47,19 +49,18 @@
   .description {
     padding: 8px 16px;
     grid-area: description;
-    font-size: clamp(3.5vw, 5px, 8vw);
+    color: white;
     line-height: 1.4em;
     margin: 0;
-    color: black;
   }
   .footer {
     grid-area: footer;
     margin: 0;
     padding: 1rem 2rem;
     text-align: center;
+    color: white;
     line-height: 2em;
 
-    font-size: clamp(3.5vw, 5px, 8vw);
     a {
       text-decoration: none;
       color: black;
