@@ -5,7 +5,6 @@ import styles from './index.module.scss';
 
 <Layout>
 	<div class={styles.pageWrapper}>
-		<!-- Video: hidden by default, faded in via JS only if motion is allowed -->
 		<video
 			id='flower-video'
 			class={styles.flowerVideo}
@@ -17,7 +16,6 @@ import styles from './index.module.scss';
 		>
 			<source src='/finalflower.webm' type='video/webm' />
 		</video>
-		<!-- Static fallback: shown when reduced motion / low power mode is active -->
 		<img
 			id='flower-fallback'
 			class={styles.flowerFallback}

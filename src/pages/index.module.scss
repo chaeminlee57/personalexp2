@@ -8,11 +8,13 @@
   background-color: #ebe9d5;
   position: relative;
   font-family: "Playfair Display";
+  max-width: 480px;
 }
 
 .flowerVideo {
   position: fixed;
   width: 100%;
+  max-width: 420px;
   top: 30dvh;
   pointer-events: none;
   opacity: 0;
